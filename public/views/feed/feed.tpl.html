@@ -1,0 +1,23 @@
+<h1>Feed</h1>
+<div ng-controller="feedCtrl">
+    <a href="/#/feedstatus" class="btn btn-info">Status</a>
+    <div ng-repeat="post in feeds">
+        {{post.uploadDate}}
+        <br> {{post.title}}
+        <br>
+        <img ng-src="{{post.mediaUrl}}">
+        <br> {{post.description}}
+        <br> {{post.user_id}}
+        <br>
+        <div ng-repeat="comment in post.commentArray">
+            {{comment.text}}<br>
+            {{comment.user_id}}<br>
+            {{comment.commentDate}}<br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+    <!--<button type="button" ng-click="statusPostButton()">Status</button>-->
+</div>

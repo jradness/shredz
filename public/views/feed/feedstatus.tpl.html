@@ -1,0 +1,10 @@
+<h1>Status Update</h1>
+<a href="/#/feed" class="btn btn-info">Back</a>
+
+<input type="text" class="form-control" placeholder="Title" ng-model="newStatus.title">
+<input type="text" class="form-control" placeholder="Video or Picture Upload" ng-model="newStatus.mediaUrl">
+<textarea rows="4" cols="100" placeholder="Shredz Description" ng-model="newStatus.description"></textarea>
+<br>
+
+<button type="button" ng-click="clickedAddStatusButton()" class="btn btn-success">Post Shredz</button>
+        {{newStatus}}

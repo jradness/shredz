@@ -1,11 +1,11 @@
-var app = angular.module('main', ['ngRoute', 'main.login', 'main.signup']);
+var app = angular.module('shredz', ['ngRoute', 'shredz.login', 'shredz.signup', 'shredz.feed']);
 
 app.config(function ($routeProvider) {
-	$routeProvider
-		.when('/', {
-			redirectTo: '/login'
-		})
-		.otherwise({
-			redirectTo: '/login'
-		});
+    $routeProvider
+        .when('/', {
+            redirectTo: '/login'
+        })
+        .otherwise({
+            redirectTo: '/login'
+        });
 });
