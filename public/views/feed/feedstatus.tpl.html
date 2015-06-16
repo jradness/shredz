@@ -1,10 +1,29 @@
-<h1>Status Update</h1>
-<a href="/#/feed" class="btn btn-info">Back</a>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 text-left">
+            <a href="/#/feed" class="btn btn-info">Back</a>
+        </div>
+        <div class="col-xs-4 col-xs-offset-4 text-right">
+            <button type="button" ng-click="clickedAddStatusButton()" class="btn btn-success">Post</button>
+        </div>
+    </div>
 
-<input type="text" class="form-control" placeholder="Title" ng-model="newStatus.title">
-<input type="text" class="form-control" placeholder="Video or Picture Upload" ng-model="newStatus.mediaUrl">
-<textarea rows="4" cols="100" placeholder="Shredz Description" ng-model="newStatus.description"></textarea>
-<br>
-
-<button type="button" ng-click="clickedAddStatusButton()" class="btn btn-success">Post Shredz</button>
-        {{newStatus}}
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            <input type="text" class="form-control" placeholder="Title" ng-model="newStatus.title">
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            <input type="text" class="form-control" placeholder="Video or Picture Upload" ng-model="newStatus.mediaUrl">
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+            <textarea class="form-control" placeholder="Shredz Description" ng-model="newStatus.description"></textarea>
+            <br>
+        </div>
+    </div>
+</div>
