@@ -1,56 +1,113 @@
 body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
+  padding-bottom: 40px;
+  background-color: #eee;
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .form-signin .checkbox {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .form-signin .form-control:focus {
-    z-index: 2;
+  z-index: 2;
 }
 
 .form-signin input[type="email"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .glyphicon {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+}
+
+#feedcol {
+  background-color: red;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+#statusbtn {
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: #d74338;
+  padding: 10px;
+  /*	text-align: center;*/
+  
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+#userProfilePic {
+  height: 40px;
+  width: 40px;
+}
+
+#postbox {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#searchbox {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+#mapview {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+body {
+  padding-top: 70px;
+}
+
+#angular-google-map-container {
+  height: 400px;
+}
+
+#createbox {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+#mapsize {
+  height: 350px;
+  width: 100%;
+  border: 3px;
 }

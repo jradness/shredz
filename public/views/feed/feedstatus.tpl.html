@@ -1,29 +1,35 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-4 text-left">
-            <a href="/#/feed" class="btn btn-info">Back</a>
-        </div>
-        <div class="col-xs-4 col-xs-offset-4 text-right">
-            <button type="button" ng-click="clickedAddStatusButton()" class="btn btn-success">Post</button>
-        </div>
+  <div class="row" style="margin-bottom: 30px">
+    <div class="col-xs-4 text-left">
+      <a href="/#/feed" class="btn btn-Danger">Back</a>
     </div>
-
-    <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 text-right">
+      <button type="button" ng-click="clickedAddStatusButton()" class="btn btn-Danger">Save</button>
+    </div>
+  </div>
+  <div class="row" style="background-color: #333">
+    <div class="col-xs-10 col-xs-offset-1" style="background-color: white;" id="createbox">
+      <div class="row" style="margin-bottom: 20px">
         <div class="col-xs-offset-1 col-xs-10">
-            <input type="text" class="form-control" placeholder="Title" ng-model="newStatus.title">
-            <br>
+          <input type="text" class="form-control" placeholder="Title" ng-model="newStatus.title">
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row" style="margin-bottom: 20px">
         <div class="col-xs-offset-1 col-xs-10">
-            <input type="text" class="form-control" placeholder="Video or Picture Upload" ng-model="newStatus.mediaUrl">
-            <br>
+          <input type="text" class="form-control" placeholder="Video or Picture Upload" ng-model="newStatus.mediaUrl">
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row" style="margin-bottom: 20px">
         <div class="col-xs-offset-1 col-xs-10">
-            <textarea class="form-control" placeholder="Shredz Description" ng-model="newStatus.description"></textarea>
-            <br>
+          <textarea class="form-control" placeholder="Shredz Description" ng-model="newStatus.description"></textarea>
         </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>Test Vid: https://www.youtube.com/watch?v=297-YewVuA0</p>
+          <p>Test Pic: http://www.sanantonio.gov/Parksandrec/images/skateboardPaltoPaltoR.jpg</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

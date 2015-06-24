@@ -1,1 +1,71 @@
-<h1>Create</h1>
+<div class="container">
+  <div class="row" style="margin-bottom: 30px">
+    <div class="col-xs-4 text-left">
+      <!--This button needs to clear all fields-->
+      <a href="/#/feed" class="btn btn-Danger" data-ng-click="clearSearch()" ng-model="newStatus.title">Clear</a>
+    </div>
+    <!--This button needs to post the new spot to "Spots" What ever the location is it will need to just add it to the map-->
+    <div class="col-xs-4 col-xs-offset-4 text-right">
+      <button type="button" ng-click="clickedAddSpotButton()" class="btn btn-Danger">Create</button>
+    </div>
+  </div>
+  <!--Need to change model to "newSpot...etc-->
+  <div class="row" style="background-color: #333">
+    <div class="col-xs-10 col-xs-offset-1" style="background-color: white;" id="createbox">
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-xs-offset-1 col-xs-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Spot Title</h3>
+            </div>
+            <input type="text" class="form-control" ng-model="newStatus.title">
+          </div>
+        </div>
+
+      </div>
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-xs-offset-1 col-xs-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Spot Picture Upload</h3>
+            </div>
+            <input type="text" class="form-control" ng-model="newStatus.mediaUrl">
+          </div>
+        </div>
+
+      </div>
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-xs-offset-1 col-xs-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Spot Description</h3>
+            </div>
+            <input type="text" class="form-control" ng-model="newStatus.description">
+          </div>
+        </div>
+
+      </div>
+      <div class="row" style="margin-bottom: 20px">
+        <div class="col-xs-offset-1 col-xs-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Spot Address</h3>
+            </div>
+            <input type="text" class="form-control" ng-model="newStatus.address">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--etc-->
+
+<!--
+<input type="button" value="Clear" onclick="clear();">
+<textarea id='output' rows=20 cols=90></textarea>
+-->
+
+
+
+
+  <!-- On create button click a "SUCCESS" text should appear at the bottom of the screen-->

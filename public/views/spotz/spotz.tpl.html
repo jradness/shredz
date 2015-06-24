@@ -1,0 +1,23 @@
+<div class="container" id="ui-gmap-google-map">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Shred Search...">
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="background-color: #333" id="searchbox">
+    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white;">
+      <map center="current-location" zoom="10" id="mapsize">
+        <info-window position="current-location">
+          <span>Loation found using HTML5.</span>
+        </info-window>
+      </map>
+      <!--      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>-->
+      <!--      <img src="http://www.techmerry.com/wp-content/uploads/2014/08/Implement-GPS-data-for-your-Google-MAP.gif" class="img-responsive center-block" id="mapview">-->
+    </div>
+  </div>
+</div>

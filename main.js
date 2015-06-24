@@ -23,17 +23,17 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-	extended: false
+  extended: false
 }));
 app.use(cookieParser());
 
 app.use(expressSession({
-	genid: function (req) {
-		return genuuid(62) // use UUIDs for session IDs 
-	},
-	secret: 'secretkey',
-	resave: false,
-	saveUninitialized: true
+  genid: function (req) {
+    return genuuid(62) // use UUIDs for session IDs
+  },
+  secret: 'secretkey',
+  resave: false,
+  saveUninitialized: true
 }));
 
 app.use(passport.initialize());
@@ -43,15 +43,15 @@ app.use(flash());
 
 app.use('/', routes(passport));
 
-//This is 404 for API requests - UI/View 404s should be 
+//This is 404 for API requests - UI/View 404s should be
 //handled in Angular
 app.use(function (req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
 app.set('port', 5050);
 var server = app.listen(app.get('port'), function () {
-	debug('Express server listening on port ' + server.address().port);
+  debug('Express server listening on port ' + server.address().port);
 });
