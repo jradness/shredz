@@ -1,6 +1,6 @@
 body {
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: white;
 }
 
 .form-signin {
@@ -43,7 +43,7 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
+/*
 .glyphicon {
   position: relative;
   top: 1px;
@@ -53,6 +53,7 @@ body {
   font-weight: 400;
   line-height: 1;
 }
+*/
 
 #feedcol {
   background-color: red;
@@ -73,9 +74,10 @@ body {
   font-weight: bold;
 }
 
-#userProfilePic {
+#userPicSize {
   height: 40px;
   width: 40px;
+  margin-left: 5px;
 }
 
 #postbox {
@@ -102,12 +104,42 @@ body {
 }
 
 #createbox {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 100px;
+  padding-bottom: 500px;
 }
 
 #mapsize {
   height: 350px;
   width: 100%;
   border: 3px;
+}
+
+#userPostBox {
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+#create_vid_pic_input {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#createpanelbox {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.commentlikeicons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.well {
+  background-color: #F2F2F2 !important;
+  background: none;
+  color: black;
+}
+
+.username {
+  color: blue;
 }

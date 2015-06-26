@@ -10,10 +10,7 @@ app.config(function ($routeProvider) {
 
 app.controller('feedStatusCtrl', function ($scope, feedService, $location, $sce) {
   $scope.feedstatus = '/feedstatus';
-
-
   $scope.newStatus = {};
-
 
   $scope.clickedAddStatusButton = function () {
     // $scope.statusPost.push($scope.newStatus);
@@ -33,7 +30,8 @@ app.controller('feedStatusCtrl', function ($scope, feedService, $location, $sce)
       title: $scope.newStatus.title,
       mediaUrl: newUrl,
       description: $scope.newStatus.description,
-      type: newType
+      type: newType,
+      commentArray: []
     };
 
 
@@ -43,17 +41,6 @@ app.controller('feedStatusCtrl', function ($scope, feedService, $location, $sce)
     $scope.newStatus = {};
     $location.path('/feed');
   };
-
-  /*$scope.addShredz = function (flickObj, success, error) {
-    var validObj = shredzValidator(flickObj);
-
-    if (validObj) {
-      modelService.favFlicks.unshift(flickObj);
-      success();
-    } else {
-      error("Make sure you fill out all fields and enter a valid Youtube video URL!")
-    }
-  };*/
 
   var shredzValidator = function (mediaUrl) {
 

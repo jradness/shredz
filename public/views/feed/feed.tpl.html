@@ -5,76 +5,73 @@
         <a href="/#/feedstatus" class="glyphicon glyphicon-film btn-lg btn" id="statusbtn"> STATUS</a>
       </div>
     </div>
-    <div class="row" style="background-color: #333" id="postbox">
-      <div class="col-xs-10 col-xs-offset-1" style="background-color: white;">
+    <div class="row" style="background-color: #eee" id="postbox">
+      <div class="col-xs-12" style="background-color: #eee;">
 
-        <div class="row" ng-repeat="post in feeds">
-          <!--
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="youtube-player embed-responsive-item" type="text/html" ng-src="{{trustSrc(flick.video)}}" frameborder="0" allowfullscreen></iframe>
-</div>-->
-          <div class="col-xs-8-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-            <div class="row">
-              <div class="col-xl-12">
-                <div class="media">
-                  <div class="media-left">
-                    <img ng-src="{{post.userPic}}" id="userProfilePic">
-                  </div>
-                  <div class="media-body">
-                    {{post.username}}
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" id="userPostBox">
+            <div class="panel panel default" ng-repeat="post in feeds | orderBy: '-uploadDate'">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xl-12">
+                    <div class="media">
+                      <div class="media-left">
+                        <img ng-src="{{post.userPic}}" id="userPicSize">
+                      </div>
+                      <div class="media-body">
+                        <b>{{post.username}}</b>
+                        <br> {{post.uploadDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                        <br>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12">
-                    {{post.uploadDate}}
+                    <br> {{post.description}}
+                    <br>
                   </div>
                 </div>
-              </div>
-
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                {{post.title}}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <!--								<iframe width="100%" height="264px" ng-src="{{trustUrl(post.mediaUrl)}}" frameborder="0" allowfullscreen></iframe>-->
-                <div ng-if="post.type === 'img'">
-                  <img ng-src="{{post.mediaUrl}}" class="img-responsive">
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div ng-if="post.type === 'img'">
+                      <img ng-src="{{post.mediaUrl}}" class="img-responsive">
+                    </div>
+                    <div ng-if="post.type === 'video'" class="embed-responsive embed-responsive-4by3">
+                      <iframe class="embed-responsive-item" ng-src="{{trustUrl(post.mediaUrl)}}"></iframe>
+                    </div>
+                  </div>
                 </div>
-
-                <div ng-if="post.type === 'video'" class="embed-responsive embed-responsive-4by3">
-                  <iframe class="embed-responsive-item" ng-src="{{trustUrl(post.mediaUrl)}}"></iframe>
+                <div class="row">
+                  <div class="col-xs-1 col-xs-offset-9 text left">
+                    <div onclick="incrementIndex()" style="font-size:1.8em;" class="glyphicon glyphicon-thumbs-up commentlikeicons">
+                      <!--                      {{post.likebutton}}-->
+                    </div>
+                  </div>
+                  <div class="col-xs-2 text-right">
+                    <div style="font-size:1.8em;" class="glyphicon glyphicon-comment commentlikeicons" data-toggle="collapse" data-target="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}">
+                    </div>
+                  </div>
                 </div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                {{post.description}}
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                {{post.user_id}}
+                <div class="collapse" id="collapseExample{{$index}}">
+                  <div ng-repeat="comment in comments = post.commentArray">
+                    <div class="well">
+                      <strong>{{comment.username}}</strong> {{comment.commentDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                      <br>{{comment.comment}}
+                    </div>
+                  </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Add Comment" ng-model="post.newComment.comment">
+                    <span class="input-group-btn">
+                      <button ng-click="postCommentButton(post)" class="btn btn-default" type="button">Post</button>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--
-          <div ng-repeat="comment in post.commentArray">
-            {{comment.text}}
-            <br> {{comment.user_id}}
-            <br> {{comment.commentDate}}
--->
     </div>
   </div>
 </div>
-</div>
-</div>
-</div>
-
-
-<!--<button type="button" ng-click="statusPostButton()">Status</button>-->

@@ -6,43 +6,42 @@ app.service('feedService', function ($sce) {
     {
       userPic: 'http://skateparkoftampa.com/spot/headshots/2696.jpg',
       username: 'JRadness',
-      uploadDate: new Date(2015, 3, 15),
-      title: "This guy is DA BOSS!",
+      uploadDate: new Date,
+      description: 'SO AMAZING!!',
       mediaUrl: "https://www.youtube.com/embed/z57lfGPjGbI",
       type: 'video',
-      //            mediaUrl: 'https://s-media-cache-ak0.pinimg.com/236x/d2/47/54/d24754f0d697dcfaffee4b72bc220290.jpg',
-      description: '"SO AMAZING!!"',
+      likebutton: 0,
+
       commentArray: [
         {
-          text: 'this is so funny',
-          user_id: '321CBA98',
+          username: 'Erik',
+          comment: 'Holla that man so RAD!!',
           commentDate: new Date(2015, 1, 14)
-             },
+                 },
         {
-          text: '...so sick!',
-          user_id: '3RD12345',
+          username: 'Arto',
+          comment: '...so sick!',
           commentDate: new Date(2015, 5, 10)
-             }
-         ]
+                 }
+             ]
     },
     {
       userPic: 'http://skateparkoftampa.com/spot/headshots/2696.jpg',
       username: 'JRadness',
       uploadDate: new Date(2015, 3, 15),
-      title: "This guy is DA BOSS!",
+      description: 'Nice Trick!!',
       mediaUrl: "http://www.sanantonio.gov/Parksandrec/images/skateboardPaltoPaltoR.jpg",
       type: 'img',
-      //            mediaUrl: 'https://s-media-cache-ak0.pinimg.com/236x/d2/47/54/d24754f0d697dcfaffee4b72bc220290.jpg',
-      description: '"SO AMAZING!!"',
+
       commentArray: [
         {
-          text: 'booo',
-          user_id: '321CBA98',
+          username: 'Mark',
+          comment: 'Killer man where was that spot?',
           commentDate: new Date(2015, 1, 14)
-        }
-      ]
-    }
-  ];
+              }
+            ]
+     }
+     ];
 
   this.getPosts = function () {
 

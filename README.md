@@ -16,7 +16,7 @@ Meaning basic user account creation and user login is set up for you out of the 
   *  Login at `/login`
   *  Create a new user account at `/signup`
 5.  Ensure that you use the middleware function `isAuthenticated` for each of your new routes on any request that must first have an authenticated user
-  *  Data that you want made to the public (without a user first loggin in) can omit the `isAuthenticated` middleware 
+  *  Data that you want made to the public (without a user first loggin in) can omit the `isAuthenticated` middleware
 6.  Currently the express app assumes the database is on the localhost. You can change the URL of the Mongo database to any location.
 
 #####Dependencies
