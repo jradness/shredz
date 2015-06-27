@@ -1,19 +1,23 @@
-<div class="container" id="ui-gmap-google-map">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
-      <div class="input-group">
+<div class="container">
+  <div class="row" id="minhieght_top">
+    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+      <div class="input-group" style="margin-bottom: 20px;">
         <input type="text" class="form-control" placeholder="Shred Search...">
         <span class="input-group-btn">
         <button class="btn btn-default" type="button">Go!</button>
       </span>
       </div>
-      <div class="row" style="background-color: #eee" id="searchbox">
-        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1" style="background-color: #eee;">
-          <div class="panel panel-default">
+    </div>
+  </div>
+  <div class="row" style="background-color: #eee; margin-top: 20px;">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+          <div class="panel panel-default" id="spotspanelbox">
             <div class="panel-body">
               <map center="current-location" zoom="10" id="mapsize">
                 <info-window position="current-location">
-                  <span>Loation found using HTML5.</span>
+                  <span>Current Location</span>
                 </info-window>
               </map>
               <!--      <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>-->
@@ -22,4 +26,11 @@
           </div>
         </div>
       </div>
+      <div class="row" style="margin-bottom:25px;">
+        <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+          <a href="/#/create" class="btn-lg btn" id="statusbtn"> Create Spot</a>
+        </div>
+      </div>
     </div>
+  </div>
+</div>

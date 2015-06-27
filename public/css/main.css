@@ -43,17 +43,6 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-/*
-.glyphicon {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-}
-*/
 
 #feedcol {
   background-color: red;
@@ -86,8 +75,8 @@ body {
 }
 
 #searchbox {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 #mapview {
@@ -104,8 +93,8 @@ body {
 }
 
 #createbox {
-  padding-top: 100px;
-  padding-bottom: 500px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 #mapsize {
@@ -125,7 +114,7 @@ body {
 }
 
 #createpanelbox {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   margin-top: 25px;
 }
 
@@ -142,4 +131,17 @@ body {
 
 .username {
   color: blue;
+}
+
+#topWhiteHeader {
+  margin-top: 50px;
+}
+
+#spotspanelbox {
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+#minhieght_top {
+  min-height: 50px;
 }

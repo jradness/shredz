@@ -1,23 +1,98 @@
-<!--Profile pic goes here-->
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
-
-      <img ng-src="{{post.userPic}}" id="userProfilePic">
-    </div>
-    <div class="media-body">
-      {{post.username}}
-
+<div class="container" id="topWhiteHeader">
+  <div class="row" style="background-color: #eee" id="postbox">
+    <div class="col-xs-12">
+      <div class="row" id="minhieght_top">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" id="userPostBox">
+          <div class="btn-group" role="group" aria-label="...">
+            <div class="row">
+              <div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 15px;">
+                <button ng-click="showUserShredz= true" type="button" class="btn btn-default">Shredz</button>
+                <button ng-click="showUserShredz= false" type="button" class="btn btn-default"> Spotz</button>
+              </div>
+            </div>
+            <div ng-show="showUserShredz">
+              <div class="panel panel default" ng-repeat="post in feeds | orderBy: '-uploadDate'">
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="media">
+                        <div class="media-left">
+                          <img ng-src="{{post.userPic}}" id="userPicSize">
+                        </div>
+                        <div class="media-body">
+                          <b>{{post.username}}</b>
+                          <br> {{post.uploadDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <br> {{post.description}}
+                      <br>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div ng-if="post.type === 'img'">
+                        <img ng-src="{{post.mediaUrl}}" class="img-responsive">
+                      </div>
+                      <div ng-if="post.type === 'video'" class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" ng-src="{{trustUrl(post.mediaUrl)}}"></iframe>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-1 col-xs-offset-9 text left">
+                      <div onclick="incrementIndex()" style="font-size:1.8em;" class="glyphicon glyphicon-thumbs-up commentlikeicons">
+                        <!--                                            {{post.likebutton}}-->
+                      </div>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                      <div style="font-size:1.8em;" class="glyphicon glyphicon-comment commentlikeicons" data-toggle="collapse" data-target="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="collapse" id="collapseExample{{$index}}">
+                    <div ng-repeat="comment in comments = post.commentArray">
+                      <div class="well">
+                        <strong>{{comment.username}}</strong> {{comment.commentDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                        <br>{{comment.comment}}
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Add Comment" ng-model="post.newComment.comment">
+                      <span class="input-group-btn">
+                      <button ng-click="postCommentButton(post)" class="btn btn-default" type="button">Post</button>
+                    </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!--Profile info here. There will be a 2 tab button that toggles between 2 views. Profiel pic must stay the same. All content below will change-->
-
-  <div class="row" style="background-color: #333" id="searchbox">
-    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1" style="background-color: white;">
-      <img src="http://www.techmerry.com/wp-content/uploads/2014/08/Implement-GPS-data-for-your-Google-MAP.gif" class="img-responsive center-block" id="mapview">
-      </a>
+</div>
+<div ng-hide="showUserShredz">
+  <div class="container">
+    <div class="row" style="background-color: #eee">
+      <div class="col-xs-10 col-xs-offset-1" style="background-color: #eee;">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="list-group">
+              <button type="button" class="list-group-item">Cras justo odio</button>
+              <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
+              <button type="button" class="list-group-item">Morbi leo risus</button>
+              <button type="button" class="list-group-item">Porta ac consectetur ac</button>
+              <button type="button" class="list-group-item">Vestibulum at eros</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,58 +1,62 @@
 <div class="container">
-  <div class="row" style="margin-bottom: 30px">
-    <div class="col-xs-4 text-left">
-      <!--This button needs to clear all fields-->
-      <a href="/#/feed" class="btn btn-Danger" data-ng-click="clearSearch()" ng-model="newStatus.title">Clear</a>
+  <div class="row" id="minhieght_top">
+    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+
+      <!--<a href="/#/feed" class="btn btn-Danger" data-ng-click="clearSearch()" ng-model="newStatus.title">Clear</a>-->
     </div>
-    <!--This button needs to post the new spot to "Spots" What ever the location is it will need to just add it to the map-->
-    <div class="col-xs-4 col-xs-offset-4 text-right">
-      <button type="button" ng-click="clickedAddSpotButton()" class="btn btn-Danger">Create</button>
-    </div>
+
+    <!--      <button type="button" ng-click="clickedAddSpotButton()" class="btn btn-Danger">Create</button>-->
   </div>
+
   <!--Need to change model to "newSpot...etc-->
-  <div class="row" style="background-color: #eee">
-    <div class="col-xs-10 col-xs-offset-1" style="background-color: # eee;" id="createbox">
-      <div class="panel panel-default">
-        <div class="panel-body" id="createpanelbox">
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xs-offset-1 col-xs-10">
-
-              <input type="text" class="form-control" placeholder="Spot Name" ng-model="newStatus.title">
-
+  <div class="row" style="background-color: #eee margin-top: 20px;">
+    <div class="col-xs-12" style="background-color: #eee;" id="createbox">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+          <div class="panel panel-default" style="margin-top: 25px;">
+            <div class="panel-body" id="createpanelbox">
+              <div class="row" style="margin-bottom: 20px">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <input type="text" class="form-control" placeholder="Spot Name" ng-model="newStatus.title">
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 20px">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <input type="text" class="form-control" placeholder="Spot Picture or Video Upload" ng-model="newStatus.mediaUrl">
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 20px">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <input type="text" class="form-control" placeholder="Spot Description" ng-model="newStatus.description">
+                </div>
+              </div>
+              <div class="row" style="margin-bottom: 20px">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <input type="text" class="form-control" placeholder="Spot Address" ng-model="newStatus.address">
+                </div>
+              </div>
             </div>
-
           </div>
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xs-offset-1 col-xs-10">
-
-              <input type="text" class="form-control" placeholder="Spot Picture or Video Upload" ng-model="newStatus.mediaUrl">
-
-            </div>
-
+        </div>
+        <div class="row" style="margin-top:25px;">
+          <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+            <a href="/#/spotz" ng-click="clickedAddSpotButton()" class="btn-lg btn" id="statusbtn">Create Spot</a>
           </div>
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xs-offset-1 col-xs-10">
-
-              <input type="text" class="form-control" placeholder="Spot Description" ng-model="newStatus.description">
-
-            </div>
-
-          </div>
-          <div class="row" style="margin-bottom: 20px">
-            <div class="col-xs-offset-1 col-xs-10">
-
-              <input type="text" class="form-control" placeholder="Spot Address" ng-model="newStatus.address">
-
-            </div>
-
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+            <br>
+            <a href="/#/feed" ng-click="clearSearch()" class="btn-lg btn" style="margin-bottom: 20px;" id="statusbtn">Clear</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--etc-->
+</div>
 
-  <!--
+<!--etc-->
+
+<!--
 <input type="button" value="Clear" onclick="clear();">
 <textarea id='output' rows=20 cols=90></textarea>
 -->
@@ -60,4 +64,4 @@
 
 
 
-  <!-- On create button click a "SUCCESS" text should appear at the bottom of the screen-->
+<!-- On create button click a "SUCCESS" text should appear at the bottom of the screen-->
