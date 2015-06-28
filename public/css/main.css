@@ -145,3 +145,8 @@ body {
 #minhieght_top {
   min-height: 50px;
 }
+
+#ProfilePicSize {
+  height: 250px;
+  width: 250px;
+}

@@ -1,94 +1,113 @@
-<div class="container" id="topWhiteHeader">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+      <img src="http://skateparkoftampa.com/spot/headshots/2696.jpg" id="ProfilePicSize">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+      <h2>JRadness</h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-xs-8 col-xs-offset-2 text-center">
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button ng-click="showUserShredz= true" type="button" class="btn btn-default">Shredz</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button ng-click="showUserShredz= false" type="button" class="btn btn-default"> Spotz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Shred/pots button tab bar -->
   <div class="row" style="background-color: #eee" id="postbox">
-    <div class="col-xs-12">
-      <div class="row" id="minhieght_top">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" id="userPostBox">
-          <div class="btn-group" role="group" aria-label="...">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" id="userPostBox">
+
+
+
+
+
+      <!-- Top of the shred feed-->
+      <div ng-show="showUserShredz">
+        <div class="panel panel default" ng-repeat="post in feeds | orderBy: '-uploadDate'">
+          <div class="panel-body">
             <div class="row">
-              <div class="col-xs-6 col-xs-offset-3" style="margin-bottom: 15px;">
-                <button ng-click="showUserShredz= true" type="button" class="btn btn-default">Shredz</button>
-                <button ng-click="showUserShredz= false" type="button" class="btn btn-default"> Spotz</button>
-              </div>
-            </div>
-            <div ng-show="showUserShredz">
-              <div class="panel panel default" ng-repeat="post in feeds | orderBy: '-uploadDate'">
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-xl-12">
-                      <div class="media">
-                        <div class="media-left">
-                          <img ng-src="{{post.userPic}}" id="userPicSize">
-                        </div>
-                        <div class="media-body">
-                          <b>{{post.username}}</b>
-                          <br> {{post.uploadDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
-                          <br>
-                        </div>
-                      </div>
-                    </div>
+              <div class="col-xl-12">
+                <div class="media">
+                  <div class="media-left">
+                    <img ng-src="{{post.userPic}}" id="userPicSize">
                   </div>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <br> {{post.description}}
-                      <br>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <div ng-if="post.type === 'img'">
-                        <img ng-src="{{post.mediaUrl}}" class="img-responsive">
-                      </div>
-                      <div ng-if="post.type === 'video'" class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" ng-src="{{trustUrl(post.mediaUrl)}}"></iframe>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-1 col-xs-offset-9 text left">
-                      <div onclick="incrementIndex()" style="font-size:1.8em;" class="glyphicon glyphicon-thumbs-up commentlikeicons">
-                        <!--                                            {{post.likebutton}}-->
-                      </div>
-                    </div>
-                    <div class="col-xs-2 text-right">
-                      <div style="font-size:1.8em;" class="glyphicon glyphicon-comment commentlikeicons" data-toggle="collapse" data-target="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="collapse" id="collapseExample{{$index}}">
-                    <div ng-repeat="comment in comments = post.commentArray">
-                      <div class="well">
-                        <strong>{{comment.username}}</strong> {{comment.commentDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
-                        <br>{{comment.comment}}
-                      </div>
-                    </div>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Add Comment" ng-model="post.newComment.comment">
-                      <span class="input-group-btn">
-                      <button ng-click="postCommentButton(post)" class="btn btn-default" type="button">Post</button>
-                    </span>
-                    </div>
+                  <div class="media-body">
+                    <b>{{post.username}}</b>
+                    <br> {{post.uploadDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                    <br>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <br> {{post.description}}
+                <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div ng-if="post.type === 'img'">
+                  <img ng-src="{{post.mediaUrl}}" class="img-responsive">
+                </div>
+                <div ng-if="post.type === 'video'" class="embed-responsive embed-responsive-4by3">
+                  <iframe class="embed-responsive-item" ng-src="{{trustUrl(post.mediaUrl)}}"></iframe>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-1 col-xs-offset-9 text left">
+                <div onclick="incrementIndex()" style="font-size:1.8em;" class="glyphicon glyphicon-thumbs-up commentlikeicons">
+                  <!--                                            {{post.likebutton}}-->
+                </div>
+              </div>
+              <div class="col-xs-2 text-right">
+                <div style="font-size:1.8em;" class="glyphicon glyphicon-comment commentlikeicons" data-toggle="collapse" data-target="#collapseExample{{$index}}" aria-expanded="false" aria-controls="collapseExample{{$index}}">
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseExample{{$index}}">
+              <div ng-repeat="comment in comments = post.commentArray">
+                <div class="well">
+                  <strong>{{comment.username}}</strong> {{comment.commentDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
+                  <br>{{comment.comment}}
+                </div>
+              </div>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Add Comment" ng-model="post.newComment.comment">
+                <span class="input-group-btn">
+                      <button ng-click="postCommentButton(post)" class="btn btn-default" type="button">Post</button>
+                    </span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div ng-hide="showUserShredz">
-  <div class="container">
-    <div class="row" style="background-color: #eee">
-      <div class="col-xs-10 col-xs-offset-1" style="background-color: #eee;">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="list-group">
-              <button type="button" class="list-group-item">Cras justo odio</button>
-              <button type="button" class="list-group-item">Dapibus ac facilisis in</button>
-              <button type="button" class="list-group-item">Morbi leo risus</button>
-              <button type="button" class="list-group-item">Porta ac consectetur ac</button>
-              <button type="button" class="list-group-item">Vestibulum at eros</button>
+      <div ng-hide="showUserShredz">
+        <div class="row" style="background-color: #eee">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="list-group">
+                  <li class="list-group-item">Spot 1</li>
+                  <li class="list-group-item">Spot 2</li>
+                  <li class="list-group-item">Spot 3</li>
+                  <li class="list-group-item">Spot 4</li>
+                  <li class="list-group-item">Spot 5</li>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -83,9 +83,8 @@ app.controller('feedStatusCtrl', function ($scope, feedService, $location, $sce)
         console.log(string);
         return string;
 
-      } else {
         return null;
-      }
+      } else {}
 
     };
 
