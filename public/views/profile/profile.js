@@ -15,6 +15,12 @@ app.controller('profileCtrl', function ($scope, feedService, $sce) {
   $scope.newComment = {};
   $scope.showUserShredz = true;
 
+  feedService.getPosts(function (posts) {
+    $scope.feeds = posts;
+  }, function (err) {
+
+  });
+
   //  $scope.trustUrl = function (url) {
   //    return $sce.trustAsResourceUrl(url);
   $scope.trustUrl = function (url) {

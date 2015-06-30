@@ -13,10 +13,10 @@
               <div class="col-xl-12">
                 <div class="media">
                   <div class="media-left">
-                    <img ng-src="{{post.userPic}}" id="userPicSize">
+                    <img ng-src="http://skateparkoftampa.com/spot/headshots/2696.jpg" id="userPicSize">
                   </div>
                   <div class="media-body">
-                    <b>{{post.username}}</b>
+                    <b>Rad User</b>
                     <br> {{post.uploadDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
                     <br>
                   </div>
@@ -51,7 +51,7 @@
               </div>
             </div>
             <div class="collapse" id="collapseExample{{$index}}">
-              <div ng-repeat="comment in comments = post.commentArray">
+              <div ng-repeat="comment in comments = post.commentsArray">
                 <div class="well">
                   <strong>{{comment.username}}</strong> {{comment.commentDate | date:'MMMM dd, yyyy @ h:mm:ss a'}}
                   <br>{{comment.comment}}

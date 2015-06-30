@@ -35,11 +35,14 @@ app.controller('feedStatusCtrl', function ($scope, feedService, $location, $sce)
     };
 
 
-    // ID generation needed in place of Erik is the boss
-    feedService.statusPosts.push($scope.newStatus);
+    feedService.makePost($scope.newStatus, function (post) {
+      $location.path('/feed');
+    }, function (err) {
+      //throw up prompt with error
+    });
 
     $scope.newStatus = {};
-    $location.path('/feed');
+
   };
 
   var shredzValidator = function (mediaUrl) {

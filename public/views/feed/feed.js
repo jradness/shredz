@@ -14,8 +14,14 @@ app.config(function ($routeProvider) {
 
 app.controller('feedCtrl', function ($scope, feedService, $sce) {
   $scope.feed = '/feed';
-  $scope.feeds = feedService.getPosts();
+  $scope.feeds = [];
   $scope.newComment = {};
+
+  feedService.getPosts(function (posts) {
+    $scope.feeds = posts;
+  }, function (err) {
+
+  });
 
   $scope.trustUrl = function (url) {
     return $sce.trustAsResourceUrl(url);
@@ -37,8 +43,12 @@ app.controller('feedCtrl', function ($scope, feedService, $sce) {
       comment: post.newComment.comment
     };
 
-    console.log(post.commentArray);
-    post.commentArray.push($scope.newComment);
+    feedService.makeComment($scope.newComment, function (post) {
+      $location.path('/feed');
+    }, function (err) {
+      //throw up prompt with error
+    });
+    //post.commentArray.push($scope.newComment);
     post.newComment.comment = '';
 
   }

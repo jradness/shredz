@@ -11,6 +11,8 @@ var express = require('express');
 var router = express.Router();
 var debug = require('debug')('dev');
 var User = require('../model/user');
+var Post = require('../model/post');
+var Comment = require('../model/comment');
 
 var isAuthenticated = function (req, res, next) {
   // if user is authenticated in the session, call the next() to call the next request handler
@@ -41,15 +43,122 @@ module.exports = function (passport) {
     res.json("Succesfully signed up");
   });
 
-  /* PUT ALL YOUR OTHER ROUTES HERE */
-  //    router.get('/item', isAuthenticated, function (req, res) {
-  //        res.json('get items from database');
-  //    });
+  /* Feeds */
+  router.get('/feed', function (req, res) {
+    Post.find({}, function (err, posts) {
+      if (err)
+        res.status(500).send({
+          msg: "Database error"
+        });
+
+      res.send(posts);
+    });
+  });
+
+  router.post('/feed', function (req, res) {
+
+    var post = new Post(req.body);
+    post.save(function (err, newPost) {
+      console.log("ERR:", err);
+      console.log("NewPOST:", newPost);
+
+      if (err)
+        res.status(500).send({
+          msg: "Could not save Post"
+        });
+
+      res.send(newPost);
+    });
+  });
+
+  router.post('/comment/:postId', function (req, res) {
+
+    var postId = req.params.postId;
+    var comment = new Comment(req.body);
+    Post.findOne({
+      _id: postId
+    }, function (err, foundPost) {
+
+      if (err)
+        res.status(400).send({
+          msg: "Could not find post"
+        });
+
+      var post = foundPost;
+      post.commentsArray.push(comment);
+
+      post.save(function (err, savedPost) {
+        if (err)
+          res.status(400).send({
+            msg: "Could not save comment to post"
+          });
+
+        res.send(savedPost);
+      });
+    });
+
+  });
+
+  router.get('/feed/test', function (req, res) {
+    //    var post = new Post({
+    //      userPic: 'http://skateparkoftampa.com/spot/headshots/2696.jpg',
+    //      username: 'JRadness',
+    //      uploadDate: new Date,
+    //      description: 'SO AMAZING!!',
+    //      mediaUrl: "https://www.youtube.com/embed/z57lfGPjGbI",
+    //      type: 'video',
+    //      likebutton: 0,
+    //
+    //      commentArray: [
+    //        {
+    //          username: 'Erik',
+    //          comment: 'Holla that man so RAD!!',
+    //          commentDate: new Date(2015, 1, 14)
+    //                 },
+    //        {
+    //          username: 'Arto',
+    //          comment: '...so sick!',
+    //          commentDate: new Date(2015, 5, 10)
+    //                 }
+    //             ]
+    //    });
+    //
+    //    post.save(function (err, data) {
+    //      if (err)
+    //        res.send(err);
+    //
+    //      res.send(data);
+    //    });
+
+    var post2 = new Post({
+      userPic: 'http://skateparkoftampa.com/spot/headshots/2696.jpg',
+      username: 'eRock',
+      uploadDate: new Date(2015, 3, 15),
+      description: 'Is this real???',
+      mediaUrl: "https://www.youtube.com/watch?v=a37DbnJBhAM",
+      type: 'video',
+
+      commentsArray: [
+        {
+          username: 'RedOctoberpus',
+          comment: 'Noyce!',
+          commentDate: new Date(2015, 1, 14)
+        }
+      ]
+    });
+
+    post2.save(function (err, data) {
+      if (err)
+        res.send(err);
+
+      res.send(data);
+    });
+  });
 
   //Test route
-  router.get('/items', isAuthenticated, function (req, res) {
-    res.json(["car", "bank", "toy", "dog"]);
-  });
+  //  router.get('/items', isAuthenticated, function (req, res) {
+  //    res.json(["car", "bank", "toy", "dog"]);
+  //  });
 
   router.get('/userslist', function (req, res) {
     User.find({},
